@@ -2,12 +2,12 @@ function Stack() {
   var top = null; //keep track of the top of stack
   var count = 0; //keep track of how many left in the stack
 
-  //returns the count
+  //#getCount() returns the count
   this.getCount = function() {
     return count;
   };
 
-  //creates node using data, pushes node onto the stack, increments counter, sets top to the node
+  //#push(data) creates node using data, pushes node onto the stack, increments counter, sets top to the node
   this.push = function (data) {
     
     var node = {
@@ -25,7 +25,7 @@ function Stack() {
     count++;
   };
 
-  //returns true if the stack is empty else false if not
+  //#isEmpty() returns true if the stack is empty else false if not
   this.isEmpty = function(){
     if(count == 0){
       return true;
@@ -33,7 +33,7 @@ function Stack() {
     return false;
   };
 
-  //reveals the top value of the stack
+  //#peek() reveals the top value of the stack
   this.peek = function () {
     //check if top points to null
     if(this.isEmpty()) {
@@ -42,5 +42,24 @@ function Stack() {
     else {
       return top.data;
     }
-  }
+  };
+
+  //#pop()
+  this.pop = function () {
+    if(this.isEmpty()){
+      console.log("Stack is empty!");
+      return null;
+    } else {
+      //decrement the count
+      count--;
+
+      //set popped_node to top
+      var popped_node = top;
+
+      //set the top to next
+      top = top.next;
+
+      return popped_node;
+    }
+  };
 };
