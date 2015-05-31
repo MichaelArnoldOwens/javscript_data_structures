@@ -37,14 +37,14 @@ function Stack() {
   this.peek = function () {
     //check if top points to null
     if(this.isEmpty()) {
-      return null
+      return null;
     }
     else {
       return top.data;
     }
   };
 
-  //#pop()
+  //#pop() return the top node and removes it from the stack
   this.pop = function () {
     if(this.isEmpty()){
       console.log("Stack is empty!");
@@ -60,6 +60,30 @@ function Stack() {
       top = top.next;
 
       return popped_node;
+    }
+  };
+
+  //#displayAll() return an array of all values in the stack
+  this.displayAll = function () {
+    if(this.isEmpty()){
+      return null;
+    }
+    else {
+      //array that will store all values and be returned
+      var arr = new Array();
+
+      //placeholder for the current node
+      var current = top;
+
+      for(var i = 0; i < count; i++){
+        //fill the array
+        arr[i] = current.data;
+
+        //iterate to next node
+        current = current.next;
+      };
+
+      return arr;
     }
   };
 };
