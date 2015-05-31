@@ -5,9 +5,9 @@ function Stack() {
   //returns the count
   this.getCount = function() {
     return count;
-  }
+  };
 
-  //pushes data onto the stack
+  //creates node using data, pushes node onto the stack, increments counter, sets top to the node
   this.push = function (data) {
     
     var node = {
@@ -22,8 +22,25 @@ function Stack() {
     top = node;
 
     //count the node
-    count++
+    count++;
+  };
+
+  //returns true if the stack is empty else false if not
+  this.isEmpty = function(){
+    if(count == 0){
+      return true;
+    };
+    return false;
+  };
+
+  //reveals the top value of the stack
+  this.peek = function () {
+    //check if top points to null
+    if(this.isEmpty()) {
+      return null
+    }
+    else {
+      return top.data;
+    }
   }
-
-
-}
+};
